@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_education_app_clean_bloc/core/res/colors.dart';
 import 'package:flutter_education_app_clean_bloc/core/res/fonts.dart';
+import 'package:flutter_education_app_clean_bloc/core/services/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: Fonts.poppins,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colours.primaryColour),
         useMaterial3: true,
       ),
+      onGenerateRoute: generateRoute,
     );
   }
 }

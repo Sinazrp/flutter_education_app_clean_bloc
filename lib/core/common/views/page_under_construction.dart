@@ -3,11 +3,10 @@ import 'package:flutter_education_app_clean_bloc/gen/assets.gen.dart';
 import 'package:lottie/lottie.dart';
 
 class PageUnderConstruction extends StatelessWidget {
-  const PageUnderConstruction({Key? key}) : super(key: key);
+  const PageUnderConstruction({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print('page under construction');
     return Scaffold(
       body: Container(
         constraints: const BoxConstraints.expand(),

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_education_app_clean_bloc/core/errors/exceptions.dart';
 import 'package:flutter_education_app_clean_bloc/core/errors/failure.dart';
 import 'package:flutter_education_app_clean_bloc/features/on_boarding/domain/repositories/on_boarding_repo.dart';
 import 'package:flutter_education_app_clean_bloc/features/on_boarding/domain/usecases/cache_firt_timer.dart';

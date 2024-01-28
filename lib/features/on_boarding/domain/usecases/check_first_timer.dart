@@ -4,7 +4,7 @@ import 'package:flutter_education_app_clean_bloc/features/on_boarding/domain/rep
 
 class CheckFirstTimer extends UseCaseWithoutParams<bool> {
   const CheckFirstTimer(this._repo);
-  final OnboardingRepo _repo;
+  final OnBoardingRepo _repo;
 
   @override
   ResultFuture<bool> call() async => _repo.checkFirstTimer();

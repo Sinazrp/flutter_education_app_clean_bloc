@@ -4,7 +4,7 @@ import 'package:flutter_education_app_clean_bloc/features/on_boarding/domain/rep
 
 class CacheFirstTimer extends UseCaseWithoutParams<void> {
   CacheFirstTimer(this._repo);
-  final OnboardingRepo _repo;
+  final OnBoardingRepo _repo;
 
   @override
   ResultFuture<void> call() async => _repo.cacheFirstTimer();

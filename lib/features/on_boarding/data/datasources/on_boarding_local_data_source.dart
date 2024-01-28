@@ -24,8 +24,11 @@ class OnBoardingDataSourceImple extends OnBoardingLocalDataSoource {
   }
 
   @override
-  Future<bool> checkFirstTimer() {
-    // TODO: implement checkFirstTimer
-    throw UnimplementedError();
+  Future<bool> checkFirstTimer() async {
+    try {
+      return _preferences.getBool(kFirstTimerKey) ?? true;
+    } catch (e) {
+      throw CacheException(message: e.toString());
+    }
   }
 }

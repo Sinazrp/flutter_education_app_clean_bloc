@@ -1,3 +1,4 @@
+import 'package:flutter_education_app_clean_bloc/core/errors/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class OnBoardingLocalDataSoource {
@@ -15,7 +16,11 @@ class OnBoardingDataSourceImple extends OnBoardingLocalDataSoource {
 
   @override
   Future<void> cacheFirstTimer() async {
-    await _preferences.setBool(kFirstTimerKey, false);
+    try {
+      await _preferences.setBool(kFirstTimerKey, false);
+    } catch (e) {
+      throw CacheException(message: e.toString());
+    }
   }
 
   @override

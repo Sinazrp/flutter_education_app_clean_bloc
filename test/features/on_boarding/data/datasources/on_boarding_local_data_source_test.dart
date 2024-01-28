@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_education_app_clean_bloc/core/errors/exceptions.dart';
 import 'package:flutter_education_app_clean_bloc/features/on_boarding/data/datasources/on_boarding_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -12,16 +14,30 @@ void main() {
     preferences = MockPref();
     dataSourceImple = OnBoardingDataSourceImple(preferences);
   });
-  test('should call shared prefrences', () async {
-    when(
-      () => preferences.setBool(any(), any()),
-    ).thenAnswer((_) async => false);
+  group('cache first time', () {
+    test('should call shared prefrences', () async {
+      when(
+        () => preferences.setBool(any(), any()),
+      ).thenAnswer((_) async => false);
 
-    await dataSourceImple.cacheFirstTimer();
+      await dataSourceImple.cacheFirstTimer();
 
-    verify(
-      () => preferences.setBool(kFirstTimerKey, false),
-    ).called(1);
-    verifyNoMoreInteractions(preferences);
+      verify(
+        () => preferences.setBool(kFirstTimerKey, false),
+      ).called(1);
+      verifyNoMoreInteractions(preferences);
+    });
+
+    test('should throw exception', () async {
+      when(
+        () => preferences.setBool(any(), any()),
+      ).thenThrow(Exception());
+      final methodCall = dataSourceImple.cacheFirstTimer;
+      expect(methodCall, throwsA(isA<CacheException>()));
+      verify(
+        () => preferences.setBool(kFirstTimerKey, false),
+      ).called(1);
+      verifyNoMoreInteractions(preferences);
+    });
   });
 }

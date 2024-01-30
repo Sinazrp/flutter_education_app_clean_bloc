@@ -12,18 +12,20 @@ class OnboardingCubitInitial extends OnboardingCubitState {
   List<Object> get props => [];
 }
 
-class CasheFirstTimer extends OnboardingCubitState {
-  const CasheFirstTimer();
+class CashingFirstTimer extends OnboardingCubitState {
+  const CashingFirstTimer();
   @override
   List<Object> get props => [];
 }
 
-class CheckFirstTimer extends OnboardingCubitState {
+class CheckingFirstTimer extends OnboardingCubitState {
+  const CheckingFirstTimer();
   @override
   List<Object> get props => [];
 }
 
 class UserCached extends OnboardingCubitState {
+  const UserCached();
   @override
   List<Object> get props => [];
 }
@@ -33,4 +35,13 @@ class OnBoardingStatus extends OnboardingCubitState {
   final bool isFirstTimer;
   @override
   List<Object> get props => [isFirstTimer];
+}
+
+class OnBoardingError extends OnboardingCubitState {
+  const OnBoardingError(this.message);
+
+  final String message;
+
+  @override
+  List<String> get props => [message];
 }

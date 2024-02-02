@@ -34,7 +34,7 @@ void main() {
       expect(
           result,
           Left<CacheFailure, void>(
-              CacheFailure(message: 'bad req', statusCode: 500)));
+              CacheFailure(message: 'bad req', statusCode: 500),),);
 
       verify(() => localDataSoource.cacheFirstTimer()).called(1);
     });

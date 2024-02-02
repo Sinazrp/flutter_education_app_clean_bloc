@@ -5,11 +5,11 @@ import 'package:flutter_education_app_clean_bloc/features/on_boarding/domain/use
 
 part 'onboarding_cubit_state.dart';
 
-class OnboardingCubitCubit extends Cubit<OnboardingCubitState> {
-  OnboardingCubitCubit(
-      {required CacheFirstTimer cacheFirstTimer,
-      required CheckFirstTimer checkFirstTimer})
-      : _cacheFirstTimer = cacheFirstTimer,
+class OnboardingCubit extends Cubit<OnboardingCubitState> {
+  OnboardingCubit({
+    required CacheFirstTimer cacheFirstTimer,
+    required CheckFirstTimer checkFirstTimer,
+  })  : _cacheFirstTimer = cacheFirstTimer,
         _checkFirstTimer = checkFirstTimer,
         super(const OnboardingCubitInitial());
 
@@ -17,13 +17,17 @@ class OnboardingCubitCubit extends Cubit<OnboardingCubitState> {
   final CheckFirstTimer _checkFirstTimer;
   Future<void> cacheFirstTimer() async {
     final result = await _cacheFirstTimer();
-    result.fold((l) => emit(OnBoardingError(l.errorMessage)),
-        (r) => emit(const UserCached()));
+    result.fold(
+      (l) => emit(OnBoardingError(l.errorMessage)),
+      (r) => emit(const UserCached()),
+    );
   }
 
   Future<void> checkFirstTimer() async {
     final result = await _checkFirstTimer();
-    result.fold((l) => emit(const OnBoardingStatus(isFirstTimer: true)),
-        (r) => emit(OnBoardingStatus(isFirstTimer: r)));
+    result.fold(
+      (l) => emit(const OnBoardingStatus(isFirstTimer: true)),
+      (r) => emit(OnBoardingStatus(isFirstTimer: r)),
+    );
   }
 }

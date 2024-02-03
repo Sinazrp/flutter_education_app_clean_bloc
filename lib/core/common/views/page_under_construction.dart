@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_education_app_clean_bloc/core/common/widget/gradient_background.dart';
 import 'package:flutter_education_app_clean_bloc/gen/assets.gen.dart';
 import 'package:lottie/lottie.dart';
 
@@ -8,19 +9,9 @@ class PageUnderConstruction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        // ignore: require_trailing_commas
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.images.onBoardingBackground.path),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child:
-              Center(child: Lottie.asset(Assets.lottie.pageUnderConstruction)),
-        ),
+      body: GradientBackground(
+        image: Assets.images.onBoardingBackground.path,
+        child: Center(child: Lottie.asset(Assets.lottie.pageUnderConstruction)),
       ),
     );
   }

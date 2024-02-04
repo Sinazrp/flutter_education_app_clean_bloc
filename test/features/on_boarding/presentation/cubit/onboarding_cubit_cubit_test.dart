@@ -71,7 +71,7 @@ void main() {
       act: (cubit) => cubit.checkFirstTimer(),
       expect: () => [
         const CheckingFirstTimer(),
-        const OnBoardingStatus(isFirstTimer: false)
+        const OnBoardingStatus(isFirstTimer: false),
       ],
       verify: (_) {
         verify(() => checkFirstTimer()).called(1);
@@ -83,13 +83,13 @@ void main() {
         when(
           () => checkFirstTimer(),
         ).thenAnswer(
-            (_) async => Left(CacheFailure(message: 'oh', statusCode: 500)));
+            (_) async => Left(CacheFailure(message: 'oh', statusCode: 500)),);
         return cubit;
       },
       act: (cubit) => cubit.checkFirstTimer(),
       expect: () => [
         const CheckingFirstTimer(),
-        const OnBoardingStatus(isFirstTimer: true)
+        const OnBoardingStatus(isFirstTimer: true),
       ],
       verify: (_) {
         verify(() => checkFirstTimer()).called(1);

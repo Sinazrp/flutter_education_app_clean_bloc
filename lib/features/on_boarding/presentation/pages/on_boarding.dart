@@ -39,32 +39,38 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           return const LoadingView();
         }
 
-        return GradientBackground(
-          image: Assets.images.onBoardingBackground.path,
-          child: Stack(
+        return Scaffold(
+          backgroundColor: Colors.grey[100],
+          body: Stack(
             children: [
               PageView(
                 controller: pageController,
                 children: [
                   OnBoardingBody(pageContent: PageContent.first()),
                   OnBoardingBody(pageContent: PageContent.second()),
-                  OnBoardingBody(pageContent: PageContent.third()),
+                  OnBoardingBody(
+                    pageContent: PageContent.third(),
+                    showButton: true,
+                  ),
                 ],
               ),
-              Align(
-                child: SmoothPageIndicator(
-                  controller: pageController,
-                  count: 3,
-                  effect: const WormEffect(
-                      activeDotColor: Colours.primaryColour,
-                      dotColor: Colors.white),
-                  onDotClicked: (index) {
-                    pageController.animateToPage(
-                      index,
-                      duration: const Duration(microseconds: 500),
-                      curve: Curves.bounceIn,
-                    );
-                  },
+              Padding(
+                padding: const EdgeInsets.only(top: 55),
+                child: Align(
+                  child: SmoothPageIndicator(
+                    controller: pageController,
+                    count: 3,
+                    effect: const WormEffect(
+                        activeDotColor: Colours.primaryColour,
+                        dotColor: Colors.white),
+                    onDotClicked: (index) {
+                      pageController.animateToPage(
+                        index,
+                        duration: const Duration(microseconds: 500),
+                        curve: Curves.bounceIn,
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

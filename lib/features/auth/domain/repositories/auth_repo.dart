@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_education_app_clean_bloc/core/utils/enums.dart';
 import 'package:flutter_education_app_clean_bloc/core/utils/type_defs.dart';
 import 'package:flutter_education_app_clean_bloc/features/auth/domain/entities/user.dart';
@@ -8,7 +9,7 @@ abstract class AuthRepo {
     required String email,
     required String password,
   });
-  ResultFuture<LocalUser> signUp({
+  ResultFuture<void> signUp({
     required String email,
     required String password,
     required String fullName,

@@ -1,12 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:education_app/core/errors/failures.dart';
-import 'package:education_app/src/auth/data/models/user_model.dart';
-import 'package:education_app/src/auth/domain/usecases/forgot_password.dart';
-import 'package:education_app/src/auth/domain/usecases/sign_in.dart';
-import 'package:education_app/src/auth/domain/usecases/sign_up.dart';
-import 'package:education_app/src/auth/domain/usecases/update_user.dart';
-import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
